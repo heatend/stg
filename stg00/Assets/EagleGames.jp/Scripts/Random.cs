@@ -55,7 +55,8 @@ namespace EagleGames
 
 		public override void OnStart()
 		{
-			var nums = TextTable.text.Split(Environment.NewLine.ToCharArray());
+			var separators = new string []{ Environment.NewLine };
+			var nums = TextTable.text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 			Table.AddRange(nums.Select(s => int.Parse(s)));
 			Index = CalcIndex(Seed);
 		}

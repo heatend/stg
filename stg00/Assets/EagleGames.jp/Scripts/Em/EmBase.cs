@@ -123,5 +123,13 @@ namespace EagleGames.Em
 		{
 			Cmd.Update();
 		}
+
+		protected float DeltaTime
+		{
+			get
+			{
+				return Toolbox.Instance.Time.DeltaTime;
+			}
+		}
 	}
 }

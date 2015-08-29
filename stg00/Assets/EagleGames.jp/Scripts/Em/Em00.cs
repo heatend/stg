@@ -84,9 +84,9 @@ namespace EagleGames.Em
 		{
 			var t = elapsedSec / MoveSec;
 			var accel = Accel.Evaluate(1f - (t * t));
-			transform.Translate(dir * Time.deltaTime * accel * Speed);
+			transform.Translate(dir * DeltaTime * accel * Speed);
 
-			elapsedSec += Time.deltaTime;
+			elapsedSec += DeltaTime;
 		}
 
 		AnimationCurve Accel

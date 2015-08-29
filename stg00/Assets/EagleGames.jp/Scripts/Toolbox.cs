@@ -16,6 +16,7 @@ namespace EagleGames
 		{
 			Items = new List<ToolItem>();
 
+			AddTool(Time);
 			AddTool(Random);
 
 			foreach (var item in Items)
@@ -43,6 +44,16 @@ namespace EagleGames
 			set;
 		}
 
+		// 時間関係
+		public Sys.Time Time
+		{
+			get { return m_Time; }
+		}
+
+		[SerializeField]
+		Sys.Time m_Time;
+
+		// ランダムまわり
 		public Random Random
 		{
 			get
