@@ -43,12 +43,9 @@ namespace EagleGames.Em
 		IEnumerator MoveForward()
 		{
 			var elapsedSec = 0f;
-
-			while (elapsedSec < 3f)
+			while (elapsedSec < MoveSec)
 			{
-				transform.Translate(Vector3.forward * Time.deltaTime);
-
-				elapsedSec += Time.deltaTime;
+				Translate(Vector3.forward, ref elapsedSec);
 				yield return null;
 			}
 		}
@@ -56,11 +53,9 @@ namespace EagleGames.Em
 		IEnumerator MoveBack()
 		{
 			var elapsedSec = 0f;
-			while (elapsedSec < 3f)
+			while (elapsedSec < MoveSec)
 			{
-				transform.Translate(Vector3.back * Time.deltaTime);
-
-				elapsedSec += Time.deltaTime;
+				Translate(Vector3.back, ref elapsedSec);
 				yield return null;
 			}
 		}
@@ -68,11 +63,9 @@ namespace EagleGames.Em
 		IEnumerator MoveRight()
 		{
 			var elapsedSec = 0f;
-			while (elapsedSec < 3f)
+			while (elapsedSec < MoveSec)
 			{
-				transform.Translate(Vector3.right * Time.deltaTime);
-
-				elapsedSec += Time.deltaTime;
+				Translate(Vector3.right, ref elapsedSec);
 				yield return null;
 			}
 		}
@@ -80,14 +73,41 @@ namespace EagleGames.Em
 		IEnumerator MoveLeft()
 		{
 			var elapsedSec = 0f;
-			while (elapsedSec < 3f)
+			while (elapsedSec < MoveSec)
 			{
-				transform.Translate(Vector3.left * Time.deltaTime);
-
-				elapsedSec += Time.deltaTime;
+				Translate(Vector3.left, ref elapsedSec);
 				yield return null;
 			}
 		}
-	}
 
+		void Translate(Vector3 dir, ref float elapsedSec)
+		{
+			var t = elapsedSec / MoveSec;
+			var accel = Accel.Evaluate(1f - (t * t));
+			transform.Translate(dir * Time.deltaTime * accel * Speed);
+
+			elapsedSec += Time.deltaTime;
+		}
+
+		AnimationCurve Accel
+		{
+			get { return m_Accel; }
+		}
+		[SerializeField]
+		AnimationCurve m_Accel;
+
+		float MoveSec
+		{
+			get { return m_MoveSec; }
+		}
+		[SerializeField]
+		float m_MoveSec = 3f;
+
+		float Speed
+		{
+			get { return m_Speed; }
+		}
+		[SerializeField]
+		float m_Speed = 1f;
+	}
 }
