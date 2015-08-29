@@ -6,6 +6,11 @@ namespace EagleGames.Scene
 {
 	public class GameMainScene : MonoBehaviour
 	{
+		public void OnButtonDown()
+		{
+			Debug.Log("乱数: " + Toolbox.Instance.Random.Int + "を消費");
+		}
+
 		// Use this for initialization
 		void Start()
 		{

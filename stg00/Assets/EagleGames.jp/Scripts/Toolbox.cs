@@ -15,7 +15,8 @@ namespace EagleGames
 		void Awake()
 		{
 			Items = new List<ToolItem>();
-			Items.Add(Random);
+
+			AddTool(Random);
 
 			foreach (var item in Items)
 			{
@@ -31,18 +32,23 @@ namespace EagleGames
 			}
 		}
 
-		public Random Random
+		void AddTool(ToolItem item)
 		{
-			get
-			{
-				return m_Random;
-			}
+			Items.Add(item);
 		}
 
 		List<ToolItem> Items
 		{
 			get;
 			set;
+		}
+
+		public Random Random
+		{
+			get
+			{
+				return m_Random;
+			}
 		}
 
 		[SerializeField]

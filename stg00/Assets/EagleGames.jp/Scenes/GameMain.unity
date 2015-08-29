@@ -356,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df85dac66e448a44687184933eddd2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FrameRate: 15
+  m_FrameRate: 30
   m_RandomValue: {fileID: 258195888}
 --- !u!1 &820756300
 GameObject:
@@ -515,6 +515,7 @@ GameObject:
   - 33: {fileID: 1446944241}
   - 65: {fileID: 1446944240}
   - 23: {fileID: 1446944239}
+  - 114: {fileID: 1446944243}
   m_Layer: 0
   m_Name: Em
   m_TagString: Untagged
@@ -577,6 +578,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!114 &1446944243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446944238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd23baa680642174b89bffde577ca853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1810498902
 Prefab:
   m_ObjectHideFlags: 0

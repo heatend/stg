@@ -33,6 +33,21 @@ namespace EagleGames
 			}
 		}
 
+		public int Range(params IEnumerable<int>[] ranges)
+		{
+			var rand = Int;
+			foreach (var item in ranges)
+			{
+				if( item.Any(p => p == rand))
+				{
+					return Array.IndexOf(ranges, item);
+				}
+			}
+
+			// 範囲内に適切な値が含まれてなかった
+			throw new System.NotImplementedException();
+		}
+
 		public override void OnAwake()
 		{
 			Table = new List<int>();
