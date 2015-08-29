@@ -30,10 +30,10 @@ namespace EagleGames.Em
 		void LotAction()
 		{
 			var index = Toolbox.Instance.Random.Range(
-				Enumerable.Range(  0,  63),
-				Enumerable.Range( 64, 127),
-				Enumerable.Range(128, 191),
-				Enumerable.Range(192, 255)
+				Enumerable.Range(  0, 64),
+				Enumerable.Range( 64, 64),
+				Enumerable.Range(128, 64),
+				Enumerable.Range(192, 64)
 				);
 
 			var action = ActionTable[index];
