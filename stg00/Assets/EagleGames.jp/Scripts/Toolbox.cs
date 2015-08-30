@@ -8,6 +8,18 @@ namespace EagleGames
 	{
 		public virtual void OnAwake() { }
 		public virtual void OnStart() { }
+		public virtual void OnUpdate() { }
+
+		/// <summary>
+		/// 実行優先順序
+		/// </summary>
+		public int Priority
+		{
+			get { return m_Priority; }
+		}
+
+		[SerializeField]
+		int m_Priority = 0;
 	}
 
 	public class Toolbox : Sys.Singleton<Toolbox>
@@ -16,13 +28,23 @@ namespace EagleGames
 		{
 			Items = new List<ToolItem>();
 
+			AddTool(Math);
 			AddTool(Time);
 			AddTool(Random);
+
+			Items.Sort((t1, t2) => {
+				return t1.Priority - t2.Priority;
+			});
 
 			foreach (var item in Items)
 			{
 				item.OnAwake();
 			}
+		}
+
+		void AddTool(ToolItem item)
+		{
+			Items.Add(item);
 		}
 
 		void Start()
@@ -33,16 +55,20 @@ namespace EagleGames
 			}
 		}
 
-		void AddTool(ToolItem item)
-		{
-			Items.Add(item);
-		}
 
 		List<ToolItem> Items
 		{
 			get;
 			set;
 		}
+
+		// 数学関係
+		public Math Math
+		{
+			get { return m_Math; }
+		}
+		[SerializeField]
+		Math m_Math;
 
 		// 時間関係
 		public Sys.Time Time

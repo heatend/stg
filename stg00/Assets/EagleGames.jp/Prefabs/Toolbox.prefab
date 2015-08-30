@@ -39,7 +39,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad086d96e01d110438547748c1c618ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Math:
+    m_Priority: -1
+  m_Time:
+    m_Priority: 0
   m_Random:
+    m_Priority: 0
     m_Seed: 890016
     m_TextTable: {fileID: 4900000, guid: e795d8649471eb244af1dcff110a04b7, type: 3}
 --- !u!1001 &100100000
