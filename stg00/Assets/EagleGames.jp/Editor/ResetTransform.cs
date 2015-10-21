@@ -21,7 +21,7 @@ public class ResetTransform : Editor
 
 		// Vector3型の入力フィールドを作成(ラベル : Position、ターゲット : ターゲットのlocalPosition)
 		tempLocalPosition = EditorGUILayout.Vector3Field("Position", targetTransform.localPosition);
-		if (GUILayout.Button("C", GUILayout.Width(25f)))
+		if (GUILayout.Button("C", GUILayout.Width(20f)))
 		{ // ラベルがResetのボタンを幅50fで作成。
 		  // リセットボタンがクリックされたらVector3(0f,0f,0f)をセット
 			tempLocalPosition = Vector3.zero;
@@ -32,7 +32,7 @@ public class ResetTransform : Editor
 		// Begin Rotationグループ
 		EditorGUILayout.BeginHorizontal();
 		tempLocalRotation = EditorGUILayout.Vector3Field("Rotation", targetTransform.localEulerAngles);
-		if (GUILayout.Button("C", GUILayout.Width(25f)))
+		if (GUILayout.Button("C", GUILayout.Width(20f)))
 		{
 			tempLocalRotation = Vector3.zero;
 		}
@@ -42,7 +42,7 @@ public class ResetTransform : Editor
 		// Begin Scaleグループ
 		EditorGUILayout.BeginHorizontal();
 		tempLocalScale = EditorGUILayout.Vector3Field("Scale", targetTransform.localScale);
-		if (GUILayout.Button("C", GUILayout.Width(25f)))
+		if (GUILayout.Button("C", GUILayout.Width(20f)))
 		{
 			tempLocalScale = Vector3.one; // Scaleの初期値はVector3(1f,1f,1f)
 		}
